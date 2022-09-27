@@ -11,8 +11,13 @@ router.get('/user/:usr', async (req,res)=> {
     const user = req.params.usr;
     const response = await fetch(baseURL+user);
     const data = await response.json();
-    const {name, html_url, location, bio, twitter_username, avatar_url} = data;
-    res.send({name, url : html_url, location, bio, twitter_username, avatar_url});
+    const {name, html_url, location, bio, twitter_username, avatar_url, public_repos} = data;
+    if(data.message==undefined){
+        res.send({failure : false, name, url : html_url, location, bio, twitter_username, avatar_url, public_repos});
+    }
+    else{
+        res.send({failure : true})
+    }
 });
 
 router.get('/:usr/:page', async (req,res)=> {

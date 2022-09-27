@@ -1,0 +1,45 @@
+.mainBody{
+    height: 100%;
+}
+
+.TopInfo{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 10px;
+}
+
+.dp{
+    border-radius: 50%;
+    width: max(15vh,15vw);
+    margin: 10px;
+}
+
+.basicInfo{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    width: 40%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 0px 20px;
+    color: #522e24;
+}
+
+.name{
+    font-size: 1.5rem;
+}
+
+.info{
+    margin: 5px 0px;
+}
+
+.bio{
+    white-space: nowrap;
+    overflow: hidden;  
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.repos{
+       
+}

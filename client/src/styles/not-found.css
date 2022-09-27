@@ -1,0 +1,18 @@
+.notFoundDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+
+.userNotFoundText{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 20px;
+    font-size: x-large;
+    color: #866770;
+}
+
+.notFoundImg{
+    height: 200px;
+    margin: 20px;
+}
