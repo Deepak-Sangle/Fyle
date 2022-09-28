@@ -8,19 +8,15 @@ require("dotenv").config();
 // app.use(customMiddleware);
 app.use(express.static('public'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(cors())
-
-//Route Requests
-app.use(require('./routes/auth'));
-
-app.use((req,res,next)=>{
-    res.send({"Message" : "huehuhue"});
-});
 
 if(process.env.NODE_ENV === "production"){
     app.use(express.static("client/build"));
 }
+
+//Route Requests
+app.use(require('./routes/auth'));
 
 //App Listening on port
 app.listen(PORT, ()=>{
