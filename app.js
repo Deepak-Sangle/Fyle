@@ -15,7 +15,7 @@ app.use(cors())
 app.use(require('./routes/auth'));
 
 app.use((req,res,next)=>{
-    res.send("404 Page");
+    res.send({"Message" : "huehuhue"});
 });
 
 if(process.env.NODE_ENV === "production"){

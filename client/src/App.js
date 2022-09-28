@@ -1,16 +1,20 @@
-import Navbar from './components/navbar';
-import Repos from './screens/repos';
-import { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+import HomePage from './screens/homepage';
 
 function App() {
 
-  const [search, setSearch] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
   return (
       <div className="App">
-        <Navbar setIsSubmitted={setIsSubmitted} search={search} setSearch={setSearch} />
-        <Repos setIsSubmitted={setIsSubmitted} isSubmitted={isSubmitted} username={search} />
+        <Router>
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+          </Routes>
+        </Router>
       </div>
   );
 }
