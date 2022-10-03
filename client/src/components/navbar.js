@@ -1,11 +1,10 @@
 import '../styles/navbar.css'
-import { useState } from 'react';
 
 const Navbar = ({setIsSubmitted, search, setSearch}) => {
 
     const handleSearch = (e)=> {
         e.preventDefault();
-        if(search!=""){
+        if(search !== ""){
             setIsSubmitted(true);
         }
     }
@@ -13,7 +12,7 @@ const Navbar = ({setIsSubmitted, search, setSearch}) => {
     const keyDown = (e) => { 
         var e = window.event || e;
         var key = e.keyCode;
-        if (key == 32) { //space
+        if (key === 32) { //space
             e.preventDefault();
         }
     }
@@ -22,7 +21,7 @@ const Navbar = ({setIsSubmitted, search, setSearch}) => {
         <div>
             <div className='topNav'>
                 <div className="rightLogo">
-                    <img src="/favicon.jpg" className='img' alt="FU" />
+                    <img src="/favicon.jpg" className='img' alt="" />
                 </div>
                 <div className="searchBar">
                     <div className="centerDiv">

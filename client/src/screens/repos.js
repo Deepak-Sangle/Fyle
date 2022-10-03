@@ -95,14 +95,14 @@ const Repos = ({isSubmitted,setIsSubmitted, username}) => {
     }
 
     const changePage = (index)=> {
-        if(index != page){
+        if(index !== page){
             setPage(index);
         }
     }
 
     const increasePage = ()=> {
         if(page<maxPages){
-            if(page%10 == 0){
+            if(page%10 === 0){
                 setCurrentSlide(currentSlide+1);
             }
             setPage(page+1);
@@ -111,7 +111,7 @@ const Repos = ({isSubmitted,setIsSubmitted, username}) => {
 
     const decreasePage = ()=> {
         if(page>1){
-            if(page%10 == 1){
+            if(page%10 === 1){
                 setCurrentSlide(currentSlide-1);
             }
             setPage(page-1);
@@ -176,21 +176,20 @@ const Repos = ({isSubmitted,setIsSubmitted, username}) => {
                     </div>}
                     {maxPages>0 && <div className="repoNums">
                         <div className="numval">
-                            <a onClick={decreasePage} id="leftArrow" className={page===1 ? "index blured" : "index"}>
+                            <div onClick={decreasePage} id="leftArrow" className={page===1 ? "index blured" : "index"}>
                                 <FaAngleDoubleLeft />
-                            </a>
+                            </div>
                             {[...Array(10).keys()].map((i)=> {
                                 const num = i+1+(currentSlide*10);
-                                if(num>maxPages) return ;
-                                else return(
-                                    <div onClick={() => changePage(num)} id={num==page ? "currIndex" : ""} className= "index" key={i}>
-                                        <a>{String(num).padStart(2, '0')}</a>
+                                if(num<=maxPages) return(
+                                    <div onClick={() => changePage(num)} id={num===page ? "currIndex" : ""} className= "index" key={i}>
+                                        {String(num).padStart(2, '0')}
                                     </div>
                                 )
                             })}
-                            <a onClick={increasePage} id="rightArrow" className={page===maxPages ? "index blured" : "index"}>
+                            <div onClick={increasePage} id="rightArrow" className={page===maxPages ? "index blured" : "index"}>
                                 <FaAngleDoubleRight />
-                            </a>
+                            </div>
                         </div>
                     </div>}
                 </div>
