@@ -10,6 +10,14 @@ const Navbar = ({setIsSubmitted, search, setSearch}) => {
         }
     }
 
+    const keyDown = (e) => { 
+        var e = window.event || e;
+        var key = e.keyCode;
+        if (key == 32) { //space
+            e.preventDefault();
+        }
+    }
+
     return (
         <div>
             <div className='topNav'>
@@ -25,6 +33,7 @@ const Navbar = ({setIsSubmitted, search, setSearch}) => {
                         />
                         <form onSubmit={handleSearch}>
                             <input 
+                                onKeyDown={(e)=> keyDown(e)}
                                 type="text"
                                 value={search}
                                 onChange={(e) => setSearch(e.target.value)}

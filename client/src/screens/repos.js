@@ -35,6 +35,7 @@ const Repos = ({isSubmitted,setIsSubmitted, username}) => {
         }
         console.log(data);
         setPage(1);
+        setCurrentSlide(0);
         setLoading(false);
     }
 
