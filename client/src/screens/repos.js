@@ -7,7 +7,7 @@ import {FaLink, FaLocationArrow, FaAngleDoubleLeft, FaAngleDoubleRight} from 're
 const Repos = ({isSubmitted,setIsSubmitted, username}) => {
 
     const [user, setUser] = useState();
-    const [repositories, setRepositories] = useState([]);
+    const [repositories, setRepositories] = useState();
     const [isNotFound, setIsNotFound] = useState(false);
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(0);
@@ -50,8 +50,13 @@ const Repos = ({isSubmitted,setIsSubmitted, username}) => {
             }
         });
         const data = await res.json();
-        setRepositories(data);
-        console.log(data);
+        if(res.status === 404){
+            console.log("repo undefined");
+            setRepositories(undefined);
+        }
+        else{
+            setRepositories(data);
+        }
         setRepoLoading(false);
     }
 
@@ -122,7 +127,7 @@ const Repos = ({isSubmitted,setIsSubmitted, username}) => {
         <div className="mainBody">
             {isNotFound && <NotFound/> }
             {loading && <Loading/>}
-            {user!==undefined && !isNotFound && !loading && <div>
+            {user!==undefined && !isNotFound && !loading && repositories!==undefined && <div>
             
                 <div className="TopInfo">
 
